@@ -42,13 +42,14 @@ A value with a newer timestamp will overwrite an older value in the database.
 
 ### 1:
 ```
-
+$TPMinfo = ConvertTo-SecureString -String "\<TPM String\>" -AsPlainText -Force
+Write-MbamTPMInformation -Computer \<machine name\> -RecoveryServiceEndPoint "http://\<server name\>/MBAMRecoveryAndHardwareService/CoreService.svc" -TpmOwnerInformation $TPMinfo
 ```
 
 ## PARAMETERS
 
 ### -Computer
-Specifies the domain name and computer name of the domain-joined computer in \<domain name\>\\\<machine name\> format (for instance "contoso.com\User1-pc").
+Specifies the domain name and computer name of the domain-joined computer in \<machine name\>@\<domain name\> format (for instance "User1-pc@Contoso.com").
 
 ```yaml
 Type: String
